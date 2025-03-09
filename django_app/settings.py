@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-&6m1uk9fnv7js*sd8kk(e^x&@=vv#kz_+rez*%uhm_^!eu)01=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'coffe-shop-production.eba-jwxw6km8.us-east-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'coffe-shop-production.eba-jwxw6km8.us-east-2.elasticbeanstalk.com', '172.31.13.180']
 
 
 # Application definition
@@ -53,7 +54,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'django_app.urls'
-import os
 
 TEMPLATES = [
     {
@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'django_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
